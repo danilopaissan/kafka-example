@@ -1,4 +1,7 @@
 # Appunti su Kafka
+## Creazione del cluster Kafka
+Per la creazione del cluster Kafka sarà molto utile, in questa demo, utilizzare Docker e, in particolare, per orchestrare la creazione e la gestione dei tre nodi Kafka, del nodo ZooKeeper, del nodo con KafDrop e Portainer utilizzare docker compose.
+Qui potete trovare il file [docker-compose.yml](https://github.com/danilopaissan/kafka-example/blob/master/docker-compose.yml) utilizzato.
 ## Demo Producer - Consumer
  Per creare un topic `nometopic` con fattore di partizionamento uguale a 1 e fattore di replica a 1
  ```
@@ -68,3 +71,6 @@ java -jar jug-kafka.jar -c limited_offer
 questo consumer visualizzerà tutti gli articoli inseriti e catalogati con un'offerta limitata, anch'esso da quando il catalogo è stato creato
 
 Per essere certi che i nostri consumer funzionino nella maniera corretta sarà interessante interromperli e, dopo averli fatti ripartire, constatare che entrambi abbiano riletto tutti i messaggi di loro interesse. 
+## Link interessanti
+* [Publishing with Apache Kafka at The New York Times](https://www.confluent.io/blog/publishing-apache-kafka-new-york-times/)
+* [7 mistakes when using Apache Kafka](https://blog.softwaremill.com/7-mistakes-when-using-apache-kafka-44358cd9cd6)
