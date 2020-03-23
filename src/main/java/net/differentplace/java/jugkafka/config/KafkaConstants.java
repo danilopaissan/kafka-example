@@ -1,7 +1,7 @@
 package net.differentplace.java.jugkafka.config;
 
 public class KafkaConstants {
-    public static String  KAFKA_BROKERS              = "kafkajug:9092,kafkajug:9094,kafkajug:9093";
+    public static String  KAFKA_BROKERS              = "XXX.XXX.XXX.XXX:9092,XXX.XXX.XXX.XXX:9094,XXX.XXX.XXX.XXX:9093";
     public static Integer MESSAGE_COUNT              = 1000;
     public static String  CLIENT_ID                  = "client-";
     public static String  TOPIC_NAME                 = "catalog";
