@@ -40,3 +40,31 @@ Al termine potremo cancellare il topic
 docker exec <dockerid> /usr/bin/kafka-topics --zookeeper XXX.XXX.XXX.XXX:2181 --delete --topic catalog
 ```
 ## Esecuzione del progetto
+Il progetto simula, con il producer, un semplice sistema di inserimento di articoli in un catalogo mentre, con i due consumer, simula due differenti *viste* sul catalogo.
+
+Per avere un aiuto su come funziona il progetto, una volta compilato, basterà eseguirlo senza argomento
+```
+$ java -jar jug-kafka.jar 
+usage: java -jar jug-kafka.jar [-c <arg>] [-p]
+ -c,--consumer <arg>   run as a consumer [general|limited_offer]
+ -p,--producer         run as a producer
+```
+Il progetto avrà bisogno di un producer e di due consumer, il producer dovrà essere lanciato nel seguente modo
+```
+java -jar jug-kafka.jar -p
+```
+i due consumer dovranno essere istanziati in maniera distinta
+
+il primo dovrà essere creato in questo modo
+```
+java -jar jug-kafka.jar -c general
+```
+questo consumer visualizzerà tutti gli articoli inseriti nel catalogo da quando il catalogo è stato creato
+
+il secondo dovrà, invece, essere creato in questo modo
+```
+java -jar jug-kafka.jar -c limited_offer
+```
+questo consumer visualizzerà tutti gli articoli inseriti e catalogati con un'offerta limitata, anch'esso da quando il catalogo è stato creato
+
+Per essere certi che i nostri consumer funzionino nella maniera corretta sarà interessante interromperli e, dopo averli fatti ripartire, constatare che entrambi abbiano riletto tutti i messaggi di loro interesse. 
