@@ -1,0 +1,66 @@
+version: "2"
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_SERVER_ID: "1"
+      ZOOKEEPER_CLIENT_PORT: "2181"
+      ZOOKEEPER_TICK_TIME: "2000"
+    restart: unless-stopped
+  kafka-1:
+    image: confluentinc/cp-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    volumes:
+      - /kafkadata/1:/var/lib/kafka/data
+    restart: unless-stopped
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: "XXX.XXX.XXX.XXX:2181"
+      KAFKA_BROKER_ID: "1"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://XXX.XXX.XXX.XXX:9092"
+      KAFKA_SOCKET_REQUEST_MAX_BYTES: 50000012
+      KAFKA_MESSAGE_MAX_BYTES: 50000012
+  kafka-2:
+    image: confluentinc/cp-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9093:9093"
+    volumes:
+      - /kafkadata/2:/var/lib/kafka/data
+    restart: unless-stopped
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: "XXX.XXX.XXX.XXX:2181"
+      KAFKA_BROKER_ID: "2"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://XXX.XXX.XXX.XXX:9093"
+      KAFKA_SOCKET_REQUEST_MAX_BYTES: 50000012
+      KAFKA_MESSAGE_MAX_BYTES: 50000012
+  kafka-3:
+    image: confluentinc/cp-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9094:9094"
+    volumes:
+      - /kafkadata/3:/var/lib/kafka/data
+    restart: unless-stopped
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: "XXX.XXX.XXX.XXX:2181"
+      KAFKA_BROKER_ID: "3"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://XXX.XXX.XXX.XXX:9094"
+      KAFKA_SOCKET_REQUEST_MAX_BYTES: 50000012
+      KAFKA_MESSAGE_MAX_BYTES: 50000012
+  kafdrop:
+    image: thomsch98/kafdrop:latest
+    depends_on:
+      - zookeeper
+    ports:
+      - "10000:9000"
+    restart: unless-stopped
+    environment:
+      ZK_HOSTS: "XXX.XXX.XXX.XXX:2181"
