@@ -82,4 +82,6 @@ Per essere certi che i nostri consumer funzionino nella maniera corretta sarà i
 ## Link interessanti
 * [Publishing with Apache Kafka at The New York Times](https://www.confluent.io/blog/publishing-apache-kafka-new-york-times/)
 * [7 mistakes when using Apache Kafka](https://blog.softwaremill.com/7-mistakes-when-using-apache-kafka-44358cd9cd6)
-* (https://docs.cloudera.com/documentation/kafka/latest/topics/kafka_performance.html)
+* [Configuring Apache Kafka for Performance and Resource Management](https://docs.cloudera.com/documentation/kafka/latest/topics/kafka_performance.html)
+* [Optimizing Your Apache Kafka Deployment](https://www.confluent.io/blog/optimizing-apache-kafka-deployment/)
+* [What is Apache Kafka?](https://www.youtube.com/watch?v=06iRM1Ghr1k)
