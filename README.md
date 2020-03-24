@@ -23,6 +23,12 @@ Procedere come di seguito:
  ```
  docker exec -it <dockerid> /usr/bin/kafka-console-producer --broker-list XXX.XXX.XXX.XXX:9092 --topic nometopic
  ```
+ Nel caso si vogliano inviare messaggi più complessi, ad esempio messaggi JSON, sarà possibile agire in questo modo
+ ```
+ docker exec <dockerid> /usr/bin/kafka-console-producer --broker-list XXX.XXX.XXX.XXX:9092 --topic nometopic < file_con_il_mio_messaggio.json 
+ ```
+ dove `file_con_il_mio_messaggio.json` sarà il file dove avremo precedentemente salvato il nostro messaggio
+ 
  Parallelamente leggiamo quanto scritto cominciando dall'inizio del topic con il parametro `--from-beginning`
  ```
  docker exec -it <dockerid> /usr/bin/kafka-console-consumer --bootstrap-server XXX.XXX.XXX.XXX:9092 --from-beginning --topic nometopic
@@ -52,6 +58,8 @@ docker exec <dockerid> /usr/bin/kafka-topics --zookeeper XXX.XXX.XXX.XXX:2181 --
 ```
 ## Esecuzione del progetto
 Il progetto simula, con il producer, un semplice sistema di inserimento di articoli in un catalogo mentre, con i due consumer, simula due differenti *viste* sul catalogo.
+
+Per compilare ed eseguire il progetto serviranno una [JDK 8](https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html) e [Maven](https://maven.apache.org/download.cgi)
 
 Per avere un aiuto su come funziona il progetto, una volta compilato, basterà eseguirlo senza argomento
 ```
