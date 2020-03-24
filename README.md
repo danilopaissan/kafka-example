@@ -57,7 +57,7 @@ Al termine potremo cancellare il topic
 docker exec <dockerid> /usr/bin/kafka-topics --zookeeper XXX.XXX.XXX.XXX:2181 --delete --topic catalog
 ```
 ## Esecuzione del progetto
-Il progetto simula, con il producer, un semplice sistema di inserimento di articoli in un catalogo mentre, con i due consumer, simula due differenti *viste* sul catalogo.
+Il [progetto](https://github.com/danilopaissan/kafka-example) simula, con il producer, un semplice sistema di inserimento di articoli in un catalogo mentre, con i due consumer, simula due differenti *viste* sul catalogo.
 
 Per compilare ed eseguire il progetto serviranno una [JDK 8](https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html) e [Maven](https://maven.apache.org/download.cgi)
 
