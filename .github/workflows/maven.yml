@@ -15,10 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@v1.3
-      with:
-         projectBaseDir: .
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
